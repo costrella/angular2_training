@@ -6,7 +6,6 @@ import {Pipe, PipeTransform} from "@angular/core";
 export class SumPipe implements PipeTransform {
 
   transform(value: number[], startValue): any {
-    debugger;
     const result = value.reduce((acc, item) => {
         return acc + item;
     }, startValue)

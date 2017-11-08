@@ -5,18 +5,27 @@ import {NgModule} from '@angular/core';
 import {AppComponent} from './app.component';
 import {SumPipe} from "./pipes/sum.pipe";
 import { SetColorDirective } from './directives/set-color.directive';
+import {DataService} from "./services/data.service";
+import {HttpClientModule} from "@angular/common/http";
+import { ProductComponent } from './components/product/product.component';
+import { ImageFrameComponent } from './components/image-frame/image-frame.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     SumPipe,
-    SetColorDirective
+    SetColorDirective,
+    ProductComponent,
+    ImageFrameComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    DataService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -23,7 +23,6 @@ export class SetColorDirective {
 
   constructor(private element: ElementRef,
               private renderer: Renderer2) {
-    debugger;
   }
 
 }
