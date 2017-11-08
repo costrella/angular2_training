@@ -1,12 +1,12 @@
 import {Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation} from '@angular/core';
 
 @Component({
-  selector: 'app-image-frame',
-  templateUrl: './image-frame.component.html',
-  styleUrls: ['./image-frame.component.css'],
+  selector: 'app-worker-card',
+  templateUrl: './worker-card.component.html',
+  styleUrls: ['./worker-card.component.css'],
   encapsulation: ViewEncapsulation.None
 })
-export class ImageFrameComponent implements OnInit {
+export class WorkerCardComponent implements OnInit {
 
   @Input() data;
   @Output() clickEvent = new EventEmitter();
@@ -16,7 +16,9 @@ export class ImageFrameComponent implements OnInit {
   ngOnInit() {
   }
 
-  showImg() {
+  doOutput(){
+    debugger
     this.clickEvent.emit(this.data)
   }
+
 }

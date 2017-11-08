@@ -9,6 +9,7 @@ import {DataService} from "./services/data.service";
 import {HttpClientModule} from "@angular/common/http";
 import { ProductComponent } from './components/product/product.component';
 import { ImageFrameComponent } from './components/image-frame/image-frame.component';
+import { WorkerCardComponent } from './components/worker-card/worker-card.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { ImageFrameComponent } from './components/image-frame/image-frame.compon
     SumPipe,
     SetColorDirective,
     ProductComponent,
-    ImageFrameComponent
+    ImageFrameComponent,
+    WorkerCardComponent
   ],
   imports: [
     BrowserModule,
