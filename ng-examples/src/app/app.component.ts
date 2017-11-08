@@ -7,5 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
-  michal = 'michal';
+  today: number = Date.now();
+  money = [20000, 500000, 700000, 10000];
 }

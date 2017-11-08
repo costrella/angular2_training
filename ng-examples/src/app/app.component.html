@@ -1,0 +1,22 @@
+<div class="container">
+
+  <div class="card-panel green">
+    <h4>Directives</h4>
+  </div>
+
+
+  <div class="card-panel red">
+    <h3>KTH Krynica {{today / 1000 / 60 / 60 / 24 / 365 + 1970}}</h3>
+    <h2>{{today | date:"dd/MM/yyyy" | uppercase}}</h2>
+  </div>
+  <div class="card-panel yellow lighten-1">
+    <h4>Piepes & Interpolation</h4>
+    {{title | uppercase}}
+    {{232323 | currency: "PLN"}}
+    <hr>
+    zarobiłżem: {{money | sum:20000}}
+  </div>
+  <div class="card-panel green lighten-1">
+    <h4>Krynickie Towarzystwo Hokejowe</h4>
+  </div>
+</div>
