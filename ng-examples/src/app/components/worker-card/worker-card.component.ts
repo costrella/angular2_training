@@ -18,7 +18,7 @@ export class WorkerCardComponent implements OnInit {
 
   doOutput(){
     debugger
-    this.clickEvent.emit(this.data)
+    this.clickEvent.emit(this.data.phone)
   }
 
 }

@@ -2,9 +2,7 @@
 
   <div class="card-panel blue">
     <h4>Components & Services</h4>
-    <div>
-      {{selectedWorker.phone}}
-    </div>
+      {{selectedWorker}}
     <app-worker-card [data]="item" *ngFor="let item of contacts"
                      (clickEvent)="selectedWorker = $event"></app-worker-card>
 
