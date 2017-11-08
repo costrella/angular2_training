@@ -1,7 +1,30 @@
-<div class="container">
+<div class="container black">
 
-  <div class="card-panel green">
+  <div class="card-panel" [appSetColor]="bgColor">
     <h4>Directives</h4>
+
+    <input [value]="bgColor"
+           (change)="bgColor = $event.target.value"
+           type="color">
+{{bgColor}}
+    <hr>
+
+    <input type="checkbox" id="toggle-access"
+           [checked]="access"
+           (change)="access = !access">
+    <label for="toggle-access" class="white-text">toggle</label>
+
+    <div *ngIf="access" class="card-panel orange"><div class="card-panel blue"><div class="card-panel green"><div class="card-panel yellow"><div class="card-panel red"><div class="card-panel grey">
+      you have access</div></div></div></div></div></div>
+
+    <ul class="collection">
+      <li
+        [ngClass]="{red: o, pink: !o}"
+        *ngFor="let item of contacts; let idx = index; let o=odd;" class="collection-item">
+        {{idx+1}} {{item.name | uppercase}} , phone: {{item.phone}} - {{o}}
+        <button class="btn">show phone</button>
+      </li>
+    </ul>
   </div>
 
 
