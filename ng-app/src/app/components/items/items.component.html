@@ -1,3 +1,12 @@
-<p>
-  items works!
-</p>
+<div class="row">
+  <div class="col-3">
+    <app-search></app-search>
+  </div>
+  <div class="col-9">
+    <app-data-grid
+      [data]="items"
+      [config]="dataGridConfig">
+
+    </app-data-grid>
+  </div>
+</div>

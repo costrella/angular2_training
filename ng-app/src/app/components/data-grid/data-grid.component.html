@@ -1,0 +1,29 @@
+config: {{config | json}}
+
+<table class="table">
+  <thead>
+
+  </thead>
+  <tbody>
+  <tr *ngFor="let item of data">
+    <td *ngFor="let key of config">
+
+      <div [ngSwitch]="key.type">
+        <div *ngSwitchCase="'number'">
+          <input type="text" class="text" [value]="item[key.name]"></div>
+        <div *ngSwitchCase="'img'">
+          <img [src]="item[key.name]" height="50">
+        </div>
+        <div *ngSwitchDefault>
+          {{item[key.name]}}
+        </div>
+
+      </div>
+    </td>
+
+    <td>
+      <button class="btn btn-danger" (click)="showMeId(item.id)">remove</button>
+    </td>
+  </tr>
+  </tbody>
+</table>
