@@ -12,17 +12,19 @@ import {BehaviorSubject} from "rxjs/BehaviorSubject";
 })
 export class ItemsComponent implements OnInit {
 
+
   items: any[];
   dataGridConfig = [
     {name: 'title'},
     {name: 'imgSrc', type: 'img'},
     {name: 'price', type: 'number'}]
 
+  pp: number;
 
   searchControl = ['title', 'price'];
 
   filters: BehaviorSubject<any> = new BehaviorSubject({
-    itemsPerPage: 5
+    itemsPerPage: 2
   });
   constructor(private itemsService: ItemsService) {
     this.fetchItems();
@@ -34,7 +36,13 @@ export class ItemsComponent implements OnInit {
 
   }
 
-
+  updateFilters(value){
+    debugger
+    this.filters.next({
+      ...this.filters.getValue(),
+      itemsPerPage: value
+    });
+}
 
   ngOnInit() {
   }
