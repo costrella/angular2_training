@@ -11,6 +11,7 @@ import {BehaviorSubject} from "rxjs/BehaviorSubject";
   ]
 })
 export class ItemsComponent implements OnInit {
+  totalItems: any;
 
 
   items: any[];
@@ -36,11 +37,11 @@ export class ItemsComponent implements OnInit {
 
   }
 
-  updateFilters(value){
+  updateFilters(key, value){
     debugger
     this.filters.next({
       ...this.filters.getValue(),
-      itemsPerPage: value
+      [key]: value
     });
 }
 
@@ -59,6 +60,7 @@ export class ItemsComponent implements OnInit {
   private fetchItems() {
     this.itemsService.fetch(this.filters.getValue()).subscribe((resp) => {
       this.items = resp.data;
+      this.totalItems = resp.total;
     })
   }
 }

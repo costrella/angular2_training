@@ -9,12 +9,18 @@
         add item
       </div>
       <div class="col-2">
-        <select (change)="updateFilters($event.target.value)"
+        <select (change)="updateFilters('itemsPerPage', $event.target.value)"
         [value]="filters.value.itemsPerPage">
           <option *ngFor="let item of [2,5,10]">
             {{item}}
           </option>
         </select>
+      </div>
+      <div class="col-8">
+        <ngb-pagination [collectionSize]="totalItems"
+                        [pageSize]="filters.value.itemsPerPage"
+                        (pageChange)="updateFilters('currentPage', $event)"
+        ></ngb-pagination>
       </div>
 
     </div>

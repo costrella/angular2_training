@@ -14,6 +14,7 @@ import { MapToIterablePipe } from './pipes/map-to-iterable.pipe';
 import { AuthComponent } from './components/auth/auth.component';
 import {FormsModule} from "@angular/forms";
 import {AuthService} from "./services/auth.service";
+import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 
 
 @NgModule({
@@ -34,7 +35,7 @@ import {AuthService} from "./services/auth.service";
       {path: 'register-form', component: RegisterFormComponent},
       {path: 'workers', component: WorkersComponent}
     ]),
-    HttpClientModule, FormsModule
+    HttpClientModule, FormsModule, NgbModule.forRoot()
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
