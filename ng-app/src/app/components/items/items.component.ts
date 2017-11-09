@@ -28,4 +28,9 @@ export class ItemsComponent implements OnInit {
   ngOnInit() {
   }
 
+  removeItem($event : Event){
+    console.log($event)
+
+  }
+
 }

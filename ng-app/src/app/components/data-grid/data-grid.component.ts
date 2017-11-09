@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-data-grid',
@@ -13,6 +13,7 @@ export class DataGridComponent implements OnInit {
 
   @Input() config : {}[];
 
+  @Output() removeEvent: EventEmitter<any> = new EventEmitter();
 
   ngOnInit() {
   }
@@ -20,5 +21,9 @@ export class DataGridComponent implements OnInit {
   showMeId(id: number){
     console.log(id)
     debugger
+  }
+
+  remove (id){
+    this.removeEvent.emit(id)
   }
 }

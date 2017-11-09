@@ -2,7 +2,9 @@ config: {{config | json}}
 
 <table class="table">
   <thead>
-
+  <tr>
+    <th *ngFor="let head of config">{{head.name}}</th>
+  </tr>
   </thead>
   <tbody>
   <tr *ngFor="let item of data">
@@ -22,7 +24,7 @@ config: {{config | json}}
     </td>
 
     <td>
-      <button class="btn btn-danger" (click)="showMeId(item.id)">remove</button>
+      <button class="btn btn-danger" (click)="remove(item.id)">remove</button>
     </td>
   </tr>
   </tbody>

@@ -5,7 +5,8 @@
   <div class="col-9">
     <app-data-grid
       [data]="items"
-      [config]="dataGridConfig">
+      [config]="dataGridConfig"
+      (removeEvent)="removeItem($event)">
 
     </app-data-grid>
   </div>
