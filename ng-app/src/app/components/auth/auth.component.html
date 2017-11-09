@@ -1,0 +1,26 @@
+<div class="alert alert-success">
+access: {{authService.access}}
+
+</div>
+<form class="form-inline" #loginForm="ngForm" *ngIf="!authService.access">
+  <input class="form-control form-control-sm"
+         type="text"
+         name="login"
+         required
+         ngModel="admin"
+         placeholder="login">
+  <input class="form-control form-control-sm"
+         type="password"
+         name="password"
+         required
+         ngModel="admin"
+         placeholder="password">
+  <button class="btn btn-sm btn-primary" (click)="sendForm(loginForm)">
+    log in
+  </button>
+</form>
+
+<ng-template #loginTpl>
+  <h1>Welcome</h1>
+</ng-template>
+<button class="btn btn-warning" *ngIf="authService.access; else loginTpl">log out</button>

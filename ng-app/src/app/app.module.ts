@@ -11,6 +11,9 @@ import { DataGridComponent } from './components/data-grid/data-grid.component';
 import { SearchComponent } from './components/search/search.component';
 import {HttpClientModule} from "@angular/common/http";
 import { MapToIterablePipe } from './pipes/map-to-iterable.pipe';
+import { AuthComponent } from './components/auth/auth.component';
+import {FormsModule} from "@angular/forms";
+import {AuthService} from "./services/auth.service";
 
 
 @NgModule({
@@ -21,7 +24,8 @@ import { MapToIterablePipe } from './pipes/map-to-iterable.pipe';
     WorkersComponent,
     DataGridComponent,
     SearchComponent,
-    MapToIterablePipe
+    MapToIterablePipe,
+    AuthComponent
   ],
   imports: [
     BrowserModule,
@@ -30,9 +34,9 @@ import { MapToIterablePipe } from './pipes/map-to-iterable.pipe';
       {path: 'register-form', component: RegisterFormComponent},
       {path: 'workers', component: WorkersComponent}
     ]),
-    HttpClientModule
+    HttpClientModule, FormsModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

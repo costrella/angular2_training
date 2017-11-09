@@ -1,3 +1,7 @@
-<p>
-  search works!
-</p>
+<form class=""card card-body #searchForm="ngForm">
+  <label *ngFor="let control of controls">
+    {{control}}
+    <input type="text" ngModel [name]="control" class="form-control">
+
+  </label>
+</form>

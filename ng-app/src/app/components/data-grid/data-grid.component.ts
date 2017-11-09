@@ -18,11 +18,6 @@ export class DataGridComponent implements OnInit {
   ngOnInit() {
   }
 
-  showMeId(id: number){
-    console.log(id)
-    debugger
-  }
-
   remove (id){
     this.removeEvent.emit(id)
   }
