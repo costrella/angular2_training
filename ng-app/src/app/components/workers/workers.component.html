@@ -1,8 +1,11 @@
 <div class="row">
   <div class="col-3">
-    <app-search></app-search>
+    <app-search [filters]="filters" [controls]="searchControl"></app-search>
   </div>
   <div class="col-9">
+
+    filters : {{filters | async | json}}
+
     <app-data-grid
       [data]="items"
       [config]="dbConfig">

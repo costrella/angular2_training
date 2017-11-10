@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {WorkersService} from "../../services/workers.service";
+import {BehaviorSubject} from "rxjs/BehaviorSubject";
 
 @Component({
   selector: 'app-workers',
@@ -11,12 +12,19 @@ export class WorkersComponent implements OnInit {
 
   items: any[];
 
+  searchControl = ['title', 'price'];
+
   constructor(private workersService: WorkersService) {
     workersService.fetch().subscribe((resp) => {
       this.items = resp.data;
     })
+
+
   }
 
+  filters: BehaviorSubject<any> = new BehaviorSubject({
+    itemsPerPage: 2
+  });
 
   dbConfig = [
     {name: "name"},
@@ -28,5 +36,6 @@ export class WorkersComponent implements OnInit {
 
   ngOnInit() {
   }
+
 
 }
