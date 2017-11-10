@@ -12,7 +12,7 @@ import { SearchComponent } from './components/search/search.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import { MapToIterablePipe } from './pipes/map-to-iterable.pipe';
 import { AuthComponent } from './components/auth/auth.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {AuthService} from "./services/auth.service";
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import {CORSInterceptor} from "./shared/cors-interceptor";
@@ -38,7 +38,7 @@ import { AddItemComponent } from './components/add-item/add-item.component';
       {path: 'register-form', component: RegisterFormComponent},
       {path: 'workers', component: WorkersComponent}
     ]),
-    HttpClientModule, FormsModule, NgbModule.forRoot()
+    HttpClientModule, FormsModule, NgbModule.forRoot(), ReactiveFormsModule
   ],
   providers: [AuthService, {
     provide: HTTP_INTERCEPTORS, useClass: CORSInterceptor, multi: true

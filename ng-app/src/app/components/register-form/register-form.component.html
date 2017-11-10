@@ -1,3 +1,35 @@
-<p>
-  register-form works!
-</p>
+<div class="row">
+  <form class="col-6" [formGroup]="form">
+    <input type="text" class="form-control" formControlName="name">
+    <div class="badge badge-warning">
+      {{form.get('name').errors | json}}
+    </div>
+    <hr>
+    <input type="text" class="form-control" formControlName="password">
+    <div class="badge badge-warning">
+      {{form.get('password').errors | json}}
+    </div>
+    <hr>
+    <input type="date" class="form-control" formControlName="birthDate">
+    <div class="badge badge-warning">
+      {{form.get('password').errors | json}}
+    </div>
+    <div formGroupName="hobbies">
+
+      <label class="badge badge-info mr-1" *ngFor="let item of form.get('hobbies').value|mapToIterable">
+
+        {{item}}
+        <input type="checkbox" [formControlName]="item">
+      </label>
+    </div>
+
+    <div class="badge badge-warning">
+      {{form.get('hobbies').errors | json}}
+    </div>
+
+  </form>
+
+
+  <pre class="col-6 alert alert-info">{{form.value|json}}</pre>
+
+</div>
