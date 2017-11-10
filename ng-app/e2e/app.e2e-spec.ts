@@ -2,7 +2,7 @@ import {browser, By, element} from "protractor";
 
 describe('items view', () => {
 
-  beforeAll((data) => {
+  it("test",() => {
     browser.get('/items')
     const btnLogin = element(By.buttonText('log in'))
     expect(btnLogin.isPresent()).toBeTruthy();
