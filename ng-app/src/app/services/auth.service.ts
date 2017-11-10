@@ -12,6 +12,9 @@ export class AuthService implements AuthServiceInterface {
   }
 
   isAuthenticated(): void {
+    this.http.get(Settings.AUTH).subscribe((data: {ok}) => {
+        this._access = data.ok;
+    })
   }
 
   logIn(formData): void {

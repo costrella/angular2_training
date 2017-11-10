@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ItemsService} from "../../services/items.service";
 import {BehaviorSubject} from "rxjs/BehaviorSubject";
+import {Subject} from "rxjs/Subject";
 
 @Component({
   selector: 'app-items',
@@ -27,14 +28,26 @@ export class ItemsComponent implements OnInit {
   filters: BehaviorSubject<any> = new BehaviorSubject({
     itemsPerPage: 2
   });
+
+  addItem: Subject<any> = new Subject();
+
   constructor(private itemsService: ItemsService) {
     this.fetchItems();
-
 
     this.filters.subscribe((data) => {
       this.fetchItems();
     })
 
+    this.addItem.subscribe((data) => {
+       this.sendItem(data);
+    })
+
+  }
+
+  sendItem(item){
+    this.itemsService.add(item).subscribe((resp) => {
+      this.fetchItems();
+    })
   }
 
   updateFilters(key, value){

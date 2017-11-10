@@ -21,7 +21,7 @@ export class ItemsService implements CRUDServiceInterface{
   }
 
   add(item): Observable<any> {
-    return undefined;
+    return this.http.post(Settings.ITEMS_END_POINT, item);
   }
 
   update(item): Observable<any> {

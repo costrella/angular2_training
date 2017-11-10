@@ -6,7 +6,7 @@
 
     <div class="row">
       <div class="col-2">
-        add item
+        <app-add-item [newItem]="addItem"></app-add-item>
       </div>
       <div class="col-2">
         <select (change)="updateFilters('itemsPerPage', $event.target.value)"

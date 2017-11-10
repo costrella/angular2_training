@@ -9,12 +9,14 @@ import { RegisterFormComponent } from './components/register-form/register-form.
 import { WorkersComponent } from './components/workers/workers.component';
 import { DataGridComponent } from './components/data-grid/data-grid.component';
 import { SearchComponent } from './components/search/search.component';
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import { MapToIterablePipe } from './pipes/map-to-iterable.pipe';
 import { AuthComponent } from './components/auth/auth.component';
 import {FormsModule} from "@angular/forms";
 import {AuthService} from "./services/auth.service";
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
+import {CORSInterceptor} from "./shared/cors-interceptor";
+import { AddItemComponent } from './components/add-item/add-item.component';
 
 
 @NgModule({
@@ -26,7 +28,8 @@ import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
     DataGridComponent,
     SearchComponent,
     MapToIterablePipe,
-    AuthComponent
+    AuthComponent,
+    AddItemComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +40,9 @@ import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
     ]),
     HttpClientModule, FormsModule, NgbModule.forRoot()
   ],
-  providers: [AuthService],
+  providers: [AuthService, {
+    provide: HTTP_INTERCEPTORS, useClass: CORSInterceptor, multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
