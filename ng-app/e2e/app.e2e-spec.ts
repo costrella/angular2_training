@@ -1,14 +1,24 @@
-import { AppPage } from './app.po';
+import {browser, By, element} from "protractor";
 
-describe('ng-app App', () => {
-  let page: AppPage;
+describe('items view', () => {
 
-  beforeEach(() => {
-    page = new AppPage();
-  });
+  beforeAll((data) => {
+    browser.get('/items')
+    const btnLogin = element(By.buttonText('log in'))
+    expect(btnLogin.isPresent()).toBeTruthy();
+    btnLogin.click();
+    expect(btnLogin.isPresent()).toBeFalsy();
+    // browser.sleep(5000)
+  })
 
-  it('should display welcome message', () => {
-    page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Welcome to app!');
-  });
-});
+  it('should true to be true', () => {
+    expect(true).toBe(true);
+  })
+
+  it('should true to be true', () => {
+    const btnAddItem = element(By.buttonText('add item'));
+    btnAddItem.click();
+    browser.sleep(5000);
+  })
+
+})

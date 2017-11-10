@@ -17,6 +17,7 @@ import {AuthService} from "./services/auth.service";
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import {CORSInterceptor} from "./shared/cors-interceptor";
 import { AddItemComponent } from './components/add-item/add-item.component';
+import {MyDirectivesModule} from "./my-directives/my-directives.module";
 
 
 @NgModule({
@@ -38,7 +39,7 @@ import { AddItemComponent } from './components/add-item/add-item.component';
       {path: 'register-form', component: RegisterFormComponent},
       {path: 'workers', component: WorkersComponent}
     ]),
-    HttpClientModule, FormsModule, NgbModule.forRoot(), ReactiveFormsModule
+    HttpClientModule, FormsModule, NgbModule.forRoot(), ReactiveFormsModule, MyDirectivesModule
   ],
   providers: [AuthService, {
     provide: HTTP_INTERCEPTORS, useClass: CORSInterceptor, multi: true
